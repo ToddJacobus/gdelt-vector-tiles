@@ -6,7 +6,7 @@ services:
       context: .
     ports:
       - "8000:8000"
-      - "5433:5432"
+      - "5432:5432"
     stdin_open: true
     tty: true
     volumes:
@@ -24,6 +24,7 @@ services:
       - DB_PASS=supersecretpassword
       # DJANGO SECRET KEY
       - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
     depends_on:
       - db
   db:
