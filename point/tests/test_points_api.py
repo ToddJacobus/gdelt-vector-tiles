@@ -29,7 +29,11 @@ class PublicPointAPITests(TestCase):
     def test_create_point(self):
         """Test that a point can be created"""
         payload = {
-            'geometry': 'POINT (10 12)'
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [0.0, 0.0],
+            },
         }
         res = self.client.post(POINT_URL, payload)
 
